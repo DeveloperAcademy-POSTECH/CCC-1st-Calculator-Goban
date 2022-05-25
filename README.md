@@ -5,7 +5,8 @@ Clon App for Caculator
 
 # Issue Convention
 ----
-태그:
+- [tag] 제목      
+### tag:
 - [Feat] : 새로운 기능 추가
 - [Fix] : 버그수정
 - [Refactor] : 코드 수정
@@ -14,6 +15,6 @@ Clon App for Caculator
 
 # Pullrequest Convention
 ----
-- [태그] 제목 #IssueNumber
+- [tag] 제목 #IssueNumber
 - 커밋 수 합쳐서 300
 - Issue assign해서 자동으로 close 되도록 하기
