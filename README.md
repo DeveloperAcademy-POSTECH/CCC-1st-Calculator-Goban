@@ -17,5 +17,5 @@ Clon App for Caculator
 ----
 - [tag] 제목
 - 커밋 수 합쳐서 300
-- Issue assign해서 자동으로 close 되도록 하기
-- 본문ㅇ resolve #IssueNumber로 이슈 바로 닫아주기
+- Issue assign해서 자동으로 close 되도록하기
+- 본문에 resolve #IssueNumber로 이슈 바로 닫아주기
