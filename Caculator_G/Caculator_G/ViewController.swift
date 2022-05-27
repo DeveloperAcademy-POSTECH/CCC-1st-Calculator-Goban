@@ -11,9 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var numLabel: UILabel!
-    var labelFontSize : CGFloat = 80
-    var numValueText : String = ""
-    var numCommaText : String = ""
+    var labelFontSize : CGFloat = 70
+    var numValueText : String = "0"
+    var numDisplayText : String = "0"
+    var isNegative : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,38 +23,60 @@ class ViewController: UIViewController {
 
     @IBAction func touchNumber(_ sender: UIButton) {
         let numBtnText = sender.titleLabel?.text
-        if numLabel.text == "0"{
-            numLabel.text = numBtnText
-            numValueText += numBtnText!
+        if numLabel.text == "0" || numLabel.text == "-0"{
+            numValueText = numBtnText!
+            numDisplayText = numBtnText!
+            if isNegative == true{
+                numDisplayText.insert("-", at: numDisplayText.startIndex)
+            }
+            numLabel.text = numDisplayText
         }
         else if numValueText.count <= 8 {
             numValueText += numBtnText!
-            numCommaText = numValueText
-            addCommaText(count: numValueText.count, numCommaText: &numCommaText)
+            numDisplayText = numValueText
+            addCommaText(count: numValueText.count, numDisplayText: &numDisplayText)
             resizeLabelFont(count: numValueText.count, labelFontSize: &labelFontSize)
-            numLabel.text! = numCommaText
+            if isNegative == true{
+                numDisplayText.insert("-", at: numDisplayText.startIndex)
+            }
+            numLabel.text! = numDisplayText
             numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
         }
     }
     
     @IBAction func resetLabel(_ sender: UIButton) {
         numLabel.text = "0"
-        numValueText = ""
-        labelFontSize = 80
+        numDisplayText = "0"
+        numValueText = "0"
+        isNegative = false
+        labelFontSize = 70
         numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
+    }
+    
+    
+    @IBAction func changeSign(_ sender: UIButton) {
+        isNegative.toggle()
+        if isNegative == true{
+            numDisplayText.insert("-", at: numDisplayText.startIndex)
+        }
+        else
+        {
+            numDisplayText.remove(at: numDisplayText.startIndex)
+        }
+        numLabel.text! = numDisplayText
     }
 }
 
-func addCommaText(count:Int, numCommaText : inout String)
+func addCommaText(count:Int, numDisplayText : inout String)
 {
     if count >= 4 && count <= 6
     {
-        numCommaText.insert(",", at: numCommaText.index(numCommaText.endIndex,offsetBy: -3))
+        numDisplayText.insert(",", at: numDisplayText.index(numDisplayText.endIndex,offsetBy: -3))
     }
     else if count >= 7 && count <= 9
     {
-        numCommaText.insert(",", at: numCommaText.index(numCommaText.endIndex,offsetBy: -3))
-        numCommaText.insert(",", at: numCommaText.index(numCommaText.endIndex,offsetBy: -7))
+        numDisplayText.insert(",", at: numDisplayText.index(numDisplayText.endIndex,offsetBy: -3))
+        numDisplayText.insert(",", at: numDisplayText.index(numDisplayText.endIndex,offsetBy: -7))
     }
 }
 
@@ -61,11 +84,11 @@ func resizeLabelFont(count:Int, labelFontSize : inout CGFloat)
 {
     switch count {
     case 7:
-        labelFontSize -= 13
-    case 8:
         labelFontSize -= 10
+    case 8:
+        labelFontSize -= 8
     case 9:
-        labelFontSize -= 7
+        labelFontSize -= 6
     default:
         break
     }
