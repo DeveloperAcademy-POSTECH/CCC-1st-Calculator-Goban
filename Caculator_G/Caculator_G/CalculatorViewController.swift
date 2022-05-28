@@ -74,7 +74,7 @@ final class CalculatorViewController: UIViewController {
         }
     }
     
-    @IBAction func caculate(_ sender: UIButton) {
+    @IBAction func calculate(_ sender: UIButton) {
         isNumEditing = false
         isCalculating = true
         let replacingDiplayText = numDisplayText.replacingOccurrences(of: ",", with: "")

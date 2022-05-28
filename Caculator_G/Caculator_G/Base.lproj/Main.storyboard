@@ -89,7 +89,7 @@
                                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="caculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zMF-F1-aGI"/>
+                                                    <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IuP-wm-nM1"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -151,7 +151,7 @@
                                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="caculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="USQ-bv-aCs"/>
+                                                    <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUk-no-tyY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -213,7 +213,7 @@
                                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="caculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tSE-Az-cuh"/>
+                                                    <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IsC-mZ-jdv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -275,7 +275,7 @@
                                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="caculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ug9-Z5-E2I"/>
+                                                    <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SH0-QZ-dRT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
