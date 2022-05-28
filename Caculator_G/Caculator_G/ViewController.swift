@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+final class CaculatorViewController: UIViewController {
     
     @IBOutlet weak var numLabel: UILabel!
     var labelFontSize : CGFloat = 70
