@@ -63,7 +63,7 @@ final class CaculatorViewController: UIViewController {
     }
 }
 
-func addCommaText(count:Int, numDisplayText : inout String)
+func addCommaText(count: Int, numDisplayText: inout String)
 {
     if count >= 4 && count <= 6
     {
