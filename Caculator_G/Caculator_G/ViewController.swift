@@ -16,10 +16,6 @@ final class CaculatorViewController: UIViewController {
     var numDisplayText : String = "0"
     var isNegative : Bool = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
     @IBAction func touchNumber(_ sender: UIButton) {
         let numBtnText = sender.titleLabel?.text
