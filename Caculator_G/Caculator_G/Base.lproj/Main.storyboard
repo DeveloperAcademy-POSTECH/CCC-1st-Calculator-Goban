@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Caculator View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Caculator_G" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CaculatorViewController" customModule="Caculator_G" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,18 +74,23 @@
                                                     <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0D-rE-Jqb">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="div" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0D-rE-Jqb">
                                                 <rect key="frame" x="265.66666666666669" y="0.0" width="76.333333333333314" height="76.333333333333329"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="" cornerStyle="capsule">
+                                                <buttonConfiguration key="configuration" style="plain" imagePlacement="top" cornerStyle="capsule">
                                                     <imageReference key="image" image="divide" catalog="system" symbolScale="large"/>
-                                                    <backgroundConfiguration key="background"/>
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                    </backgroundConfiguration>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="heavy">
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     </preferredSymbolConfiguration>
-                                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="caculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zMF-F1-aGI"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -131,19 +136,23 @@
                                                     <action selector="touchNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8yH-JF-TaB"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qG-PH-5j8">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="mul" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qG-PH-5j8">
                                                 <rect key="frame" x="265.66666666666669" y="0.0" width="76.333333333333314" height="76.666666666666671"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                                <buttonConfiguration key="configuration" style="plain" imagePlacement="top" cornerStyle="capsule">
                                                     <imageReference key="image" image="multiply" catalog="system" symbolScale="large"/>
-                                                    <backgroundConfiguration key="background"/>
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                    </backgroundConfiguration>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     </preferredSymbolConfiguration>
-                                                    <attributedString key="attributedTitle"/>
-                                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="caculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="USQ-bv-aCs"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -190,18 +199,22 @@
                                                     <action selector="touchNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eWI-tZ-HrZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXX-6l-dMB">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="sub" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXX-6l-dMB">
                                                 <rect key="frame" x="265.66666666666669" y="0.0" width="76.333333333333314" height="76.333333333333329"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" image="minus" catalog="system" cornerStyle="capsule">
-                                                    <backgroundConfiguration key="background"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="minus" catalog="system" imagePlacement="top" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                    </backgroundConfiguration>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     </preferredSymbolConfiguration>
-                                                    <attributedString key="attributedTitle"/>
-                                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="caculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tSE-Az-cuh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -248,18 +261,22 @@
                                                     <action selector="touchNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3fP-0j-Zsa"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GON-ff-Cu1">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="add" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GON-ff-Cu1">
                                                 <rect key="frame" x="265.66666666666669" y="0.0" width="76.333333333333314" height="76.666666666666671"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="capsule">
-                                                    <backgroundConfiguration key="background"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" imagePlacement="top" title="" subtitle="" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                    </backgroundConfiguration>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     </preferredSymbolConfiguration>
-                                                    <attributedString key="attributedTitle"/>
-                                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="caculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ug9-Z5-E2I"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -308,6 +325,9 @@
                                                             <attributedString key="attributedTitle"/>
                                                             <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="equalSign:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W7N-ud-fAC"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -325,7 +345,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="GON-ff-Cu1" id="ft5-rb-ZU2"/>
+                        <outlet property="divButton" destination="K0D-rE-Jqb" id="6iG-BT-L1n"/>
+                        <outlet property="mulButton" destination="5qG-PH-5j8" id="DHA-NC-LU7"/>
                         <outlet property="numLabel" destination="ajo-x6-qPK" id="b82-XE-Yah"/>
+                        <outlet property="subButton" destination="pXX-6l-dMB" id="n8e-9l-VWq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -351,6 +375,9 @@
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
