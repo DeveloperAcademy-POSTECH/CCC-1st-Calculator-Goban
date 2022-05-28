@@ -22,7 +22,7 @@ final class CaculatorViewController: UIViewController {
         if numLabel.text == "0" || numLabel.text == "-0"{
             numValueText = numBtnText!
             numDisplayText = numBtnText!
-            if isNegative == true{
+            if isNegative {
                 numDisplayText.insert("-", at: numDisplayText.startIndex)
             }
             numLabel.text = numDisplayText
