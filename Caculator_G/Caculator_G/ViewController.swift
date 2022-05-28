@@ -17,7 +17,7 @@ final class CaculatorViewController: UIViewController {
     var isNegative = false
     
 
-    @IBAction func touchNumber(_ sender: UIButton) {
+    @IBAction private func touchNumber(_ sender: UIButton) {
         let numBtnText = sender.titleLabel?.text
         if numLabel.text == "0" || numLabel.text == "-0"{
             numValueText = numBtnText!
