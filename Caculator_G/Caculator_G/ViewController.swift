@@ -12,9 +12,9 @@ final class CaculatorViewController: UIViewController {
     
     @IBOutlet weak var numLabel: UILabel!
     var labelFontSize : CGFloat = 70
-    var numValueText : String = "0"
-    var numDisplayText : String = "0"
-    var isNegative : Bool = false
+    var numValueText = "0"
+    var numDisplayText = "0"
+    var isNegative = false
     
 
     @IBAction func touchNumber(_ sender: UIButton) {
