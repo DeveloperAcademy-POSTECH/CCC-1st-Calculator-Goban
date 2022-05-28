@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class CaculatorViewController: UIViewController {
+final class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var numLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
@@ -22,10 +22,10 @@ final class CaculatorViewController: UIViewController {
     private var numDisplayText = "0"
     private var isNegative = false
     private var dotPosition  = 0
-    private var isCaculating  = false
-    private var newCaculation = false
-    private var caculateNum = 0
-    private var caculateNumTemp = 5
+    private var isCalculating  = false
+    private var newCalculation = false
+    private var calculateNum = 0
+    private var calculateNumTemp = 5
     private var tempIndentifier = ""
     private var numAmountTemp : Float = 0
     private var numAmount : Float = 0
@@ -35,9 +35,9 @@ final class CaculatorViewController: UIViewController {
     
     @IBAction private func touchNumber(_ sender: UIButton) {
         let numBtnText = sender.titleLabel?.text
-        if caculateNum != 0 && isCaculating{
+        if calculateNum != 0 && isCalculating{
             resetInput()
-        }else if caculateNum != 0 && newCaculation{
+        }else if calculateNum != 0 && newCalculation{
             if dotPosition != 0 {
                 numValueText.insert(".", at: numValueText.index(numValueText.startIndex, offsetBy: dotPosition))
             }
@@ -76,32 +76,32 @@ final class CaculatorViewController: UIViewController {
     
     @IBAction func caculate(_ sender: UIButton) {
         isNumEditing = false
-        isCaculating = true
+        isCalculating = true
         let replacingDiplayText = numDisplayText.replacingOccurrences(of: ",", with: "")
         numAmount = Float(replacingDiplayText) ?? 0
         
-        if caculateNum != 0 && isCaculating{
+        if calculateNum != 0 && isCalculating{
             sender.configuration?.background.backgroundColor = .white
             sender.configuration?.baseForegroundColor = .systemOrange
             //caculate
         }
         switch sender.restorationIdentifier{
         case "add":
-            caculateNum = 1
+            calculateNum = 1
         case "sub":
-            caculateNum = 2
+            calculateNum = 2
         case "mul":
-            caculateNum = 3
+            calculateNum = 3
         case "div":
-            caculateNum = 4
+            calculateNum = 4
         default:
-            caculateNum = 0
+            calculateNum = 0
         }
-        if caculateNum != caculateNumTemp{
+        if calculateNum != calculateNumTemp{
             sender.configuration?.background.backgroundColor = .white
             sender.configuration?.baseForegroundColor = .systemOrange
-            controlCaculateButtonColor(count: caculateNumTemp)
-            caculateNumTemp = caculateNum
+            controlCaculateButtonColor(count: calculateNumTemp)
+            calculateNumTemp = calculateNum
         }
     }
     
@@ -119,7 +119,7 @@ final class CaculatorViewController: UIViewController {
             numAmountTemp = Float(numValueTempText) ?? 0
         }
 
-        switch caculateNum{
+        switch calculateNum{
         case 1:
             addtion(numAmountTemp: numAmountTemp)
         default:
@@ -137,12 +137,12 @@ final class CaculatorViewController: UIViewController {
         addCommaResultText(count: resultDotPositionText.count - resultNegativeCount, numDisplayText: &resultDisplayText,isNagative: isResultNagative)
         resizeLabelFont(count: resultDisplayText.count, labelFontSize: &labelFontSize)
         numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
-        controlCaculateButtonColor(count: caculateNum)
+        controlCaculateButtonColor(count: calculateNum)
         numLabel.text = resultDisplayText
         numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
         numDisplayText = resultDisplayText
-        newCaculation = true
-        caculateNumTemp = 5
+        newCalculation = true
+        calculateNumTemp = 5
         labelFontSize = 70
         isNegative = isResultNagative ? true : false
         numValueTempText = String(numAmountTemp)
@@ -164,14 +164,14 @@ final class CaculatorViewController: UIViewController {
         numValueText = "0"
         numValueTempText = ""
         isNegative = false
-        isCaculating = false
+        isCalculating = false
         isNumEditing = false
-        newCaculation = false
-        caculateNumTemp = 5
+        newCalculation = false
+        calculateNumTemp = 5
         dotPosition = 0
         labelFontSize = 70
         numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
-        controlCaculateButtonColor(count: caculateNum)
+        controlCaculateButtonColor(count: calculateNum)
         numAmount = 0
         numAmountTemp = 0
     }
@@ -191,7 +191,7 @@ final class CaculatorViewController: UIViewController {
     
     
     @IBAction func addDot(_ sender: UIButton) {
-        if newCaculation{
+        if newCalculation{
             if dotPosition != 0 {
                 numValueText.insert(".", at: numValueText.index(numValueText.startIndex, offsetBy: dotPosition))
             }
@@ -238,14 +238,14 @@ final class CaculatorViewController: UIViewController {
         numValueText = "0"
         numValueTempText = ""
         isNegative = false
-        isCaculating = false
+        isCalculating = false
         isNumEditing = false
-        newCaculation = false
-        caculateNumTemp = 5
+        newCalculation = false
+        calculateNumTemp = 5
         dotPosition = 0
         labelFontSize = 70
         numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
-        controlCaculateButtonColor(count: caculateNum)
+        controlCaculateButtonColor(count: calculateNum)
     }
     
     func addCommaText(count: Int, numDisplayText: inout String)
