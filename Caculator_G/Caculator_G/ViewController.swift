@@ -52,7 +52,7 @@ final class CaculatorViewController: UIViewController {
     
     @IBAction func changeSign(_ sender: UIButton) {
         isNegative.toggle()
-        if isNegative == true{
+        if isNegative {
             numDisplayText.insert("-", at: numDisplayText.startIndex)
         }
         else
