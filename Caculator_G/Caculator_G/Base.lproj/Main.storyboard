@@ -292,6 +292,9 @@
                                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="35"/>
                                                             <color key="baseBackgroundColor" systemColor="secondaryLabelColor"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="addDot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cH1-wl-m8D"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rp3-Cu-f8G">
                                                         <rect key="frame" x="88.666666666666686" y="0.0" width="76.333333333333314" height="76.333333333333329"/>
