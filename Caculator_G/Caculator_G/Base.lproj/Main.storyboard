@@ -73,6 +73,9 @@
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="touchPercent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c2E-pt-enT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="div" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0D-rE-Jqb">
                                                 <rect key="frame" x="265.66666666666669" y="0.0" width="76.333333333333314" height="76.333333333333329"/>
@@ -290,6 +293,7 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="0" cornerStyle="capsule">
                                                     <backgroundConfiguration key="background"/>
                                                     <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="35"/>
+                                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="20" bottom="0.0" trailing="0.0"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" systemColor="secondaryLabelColor"/>
                                                 </buttonConfiguration>

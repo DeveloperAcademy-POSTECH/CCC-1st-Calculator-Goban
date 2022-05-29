@@ -122,6 +122,12 @@ final class CalculatorViewController: UIViewController {
         switch calculateNum{
         case 1:
             addtion(numAmountTemp: numAmountTemp)
+        case 2:
+            subtraction(numAmountTemp: numAmountTemp)
+        case 3:
+            multiplication(numAmountTemp: numAmountTemp)
+        case 4:
+            division(numAmountTemp: numAmountTemp)
         default:
             break
         }
@@ -150,13 +156,41 @@ final class CalculatorViewController: UIViewController {
     
     func addtion(numAmountTemp : Float){
         numAmount += numAmountTemp
-        print("----caculate----")
-        print("numAmount")
-        print(numAmount)
-        print("numAmountTemp")
-        print(numAmountTemp)
+    }
+    func subtraction(numAmountTemp : Float){
+        numAmount -= numAmountTemp
+    }
+    func multiplication(numAmountTemp : Float){
+        numAmount *= numAmountTemp
+    }
+    func division(numAmountTemp : Float){
+        numAmount /= numAmountTemp
     }
     
+    @IBAction func touchPercent(_ sender: UIButton) {
+        let replacingDiplayText = numDisplayText.replacingOccurrences(of: ",", with: "")
+        numAmount = Float(replacingDiplayText) ?? 0
+        numAmount /= 100
+        var resultDisplayText = String(numAmount)
+        if resultDisplayText[resultDisplayText.index(resultDisplayText.endIndex, offsetBy: -1)] == "0" && resultDisplayText[resultDisplayText.index(resultDisplayText.endIndex, offsetBy: -2)] == "."
+        {
+            resultDisplayText.remove(at: resultDisplayText.index(resultDisplayText.endIndex, offsetBy: -1))
+            resultDisplayText.remove(at: resultDisplayText.index(resultDisplayText.endIndex, offsetBy: -1))
+        }
+        let resultDotPositionText = resultDisplayText[..<(resultDisplayText.firstIndex(of: ".") ?? resultDisplayText.endIndex)]
+        let isResultNagative = resultDisplayText[resultDisplayText.startIndex] == "-" ? true : false
+        let resultNegativeCount = isResultNagative ? 1 : 0
+        addCommaResultText(count: resultDotPositionText.count - resultNegativeCount, numDisplayText: &resultDisplayText,isNagative: isResultNagative)
+        resizeLabelFont(count: resultDisplayText.count, labelFontSize: &labelFontSize)
+        numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
+        numLabel.text = resultDisplayText
+        numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
+        numDisplayText = resultDisplayText
+        isNumEditing = false
+        labelFontSize = 70
+        isNegative = isResultNagative ? true : false
+        numValueTempText = String(numAmountTemp)
+    }
     
     @IBAction func resetLabel(_ sender: UIButton) {
         numLabel.text = "0"
@@ -178,15 +212,29 @@ final class CalculatorViewController: UIViewController {
     
     
     @IBAction func changeSign(_ sender: UIButton) {
-        isNegative.toggle()
-        if isNegative {
+        if isCalculating{
+            if dotPosition != 0 {
+                numValueText.insert(".", at: numValueText.index(numValueText.startIndex, offsetBy: dotPosition))
+            }
+            if isNegative {
+                numValueText.insert("-", at: numValueText.startIndex)
+            }
+            numAmount = Float(numValueText) ?? 0
+            resetInput()
+            isNegative = true
             numDisplayText.insert("-", at: numDisplayText.startIndex)
+            numLabel.text = numDisplayText
+        }else{
+            isNegative.toggle()
+            if isNegative {
+                numDisplayText.insert("-", at: numDisplayText.startIndex)
+            }
+            else
+            {
+                numDisplayText.remove(at: numDisplayText.startIndex)
+            }
+            numLabel.text! = numDisplayText
         }
-        else
-        {
-            numDisplayText.remove(at: numDisplayText.startIndex)
-        }
-        numLabel.text! = numDisplayText
     }
     
     
