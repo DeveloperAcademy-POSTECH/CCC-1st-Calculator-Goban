@@ -141,7 +141,7 @@ final class CalculatorViewController: UIViewController {
         let isResultNagative = resultDisplayText[resultDisplayText.startIndex] == "-" ? true : false
         let resultNegativeCount = isResultNagative ? 1 : 0
         addCommaResultText(count: resultDotPositionText.count - resultNegativeCount, numDisplayText: &resultDisplayText,isNagative: isResultNagative)
-        resizeLabelFont(count: resultDisplayText.count, labelFontSize: &labelFontSize)
+        resizeResultLabelFont(count: resultDisplayText.count, labelFontSize: &labelFontSize)
         numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
         controlCaculateButtonColor(count: calculateNum)
         numLabel.text = resultDisplayText
@@ -170,7 +170,7 @@ final class CalculatorViewController: UIViewController {
     @IBAction func touchPercent(_ sender: UIButton) {
         let replacingDiplayText = numDisplayText.replacingOccurrences(of: ",", with: "")
         numAmount = Float(replacingDiplayText) ?? 0
-        numAmount /= 100
+        numAmount /= 100.0
         var resultDisplayText = String(numAmount)
         if resultDisplayText[resultDisplayText.index(resultDisplayText.endIndex, offsetBy: -1)] == "0" && resultDisplayText[resultDisplayText.index(resultDisplayText.endIndex, offsetBy: -2)] == "."
         {
@@ -181,8 +181,7 @@ final class CalculatorViewController: UIViewController {
         let isResultNagative = resultDisplayText[resultDisplayText.startIndex] == "-" ? true : false
         let resultNegativeCount = isResultNagative ? 1 : 0
         addCommaResultText(count: resultDotPositionText.count - resultNegativeCount, numDisplayText: &resultDisplayText,isNagative: isResultNagative)
-        resizeLabelFont(count: resultDisplayText.count, labelFontSize: &labelFontSize)
-        numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
+        resizeResultLabelFont(count: resultDisplayText.count, labelFontSize: &labelFontSize)
         numLabel.text = resultDisplayText
         numLabel.font = UIFont.systemFont(ofSize: labelFontSize)
         numDisplayText = resultDisplayText
@@ -339,14 +338,12 @@ final class CalculatorViewController: UIViewController {
     func resizeResultLabelFont(count:Int, labelFontSize : inout CGFloat)
     {
         switch count{
-        case 7:
-            labelFontSize = 70
         case 8:
-            labelFontSize = 68
-        case 9:
-            labelFontSize = 66
-        case 10...20:
             labelFontSize = 60
+        case 9:
+            labelFontSize = 52
+        case 10...20:
+            labelFontSize = 46
         default:
             break
         }
