@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+final class CaculatorViewController: UIViewController {
     
     @IBOutlet weak var numLabel: UILabel!
     var labelFontSize : CGFloat = 70
@@ -17,17 +17,13 @@ class ViewController: UIViewController {
     var isNegative : Bool = false
     var dotPosition : Int = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
-    @IBAction func touchNumber(_ sender: UIButton) {
+    @IBAction private func touchNumber(_ sender: UIButton) {
         let numBtnText = sender.titleLabel?.text
         if numLabel.text == "0" || numLabel.text == "-0"{
             numValueText = numBtnText!
             numDisplayText = numBtnText!
-            if isNegative == true{
+            if isNegative {
                 numDisplayText.insert("-", at: numDisplayText.startIndex)
             }
             numLabel.text = numDisplayText
@@ -57,7 +53,7 @@ class ViewController: UIViewController {
     
     @IBAction func changeSign(_ sender: UIButton) {
         isNegative.toggle()
-        if isNegative == true{
+        if isNegative {
             numDisplayText.insert("-", at: numDisplayText.startIndex)
         }
         else
@@ -78,7 +74,7 @@ class ViewController: UIViewController {
     
 }
 
-func addCommaText(count:Int, numDisplayText : inout String)
+func addCommaText(count: Int, numDisplayText: inout String)
 {
     if count == 4
     {
