@@ -34,14 +34,12 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Xxl-1h-tE7" secondAttribute="height" multiplier="1:1" id="Yrg-mi-B7K"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="30"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="AC" cornerStyle="capsule">
-                                                    <backgroundConfiguration key="background"/>
-                                                    <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="30"/>
-                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="AC">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="resetLabel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8bk-ua-TEe"/>
                                                 </connections>
@@ -349,6 +347,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="acButton" destination="Xxl-1h-tE7" id="CYP-H1-K3y"/>
                         <outlet property="addButton" destination="GON-ff-Cu1" id="ft5-rb-ZU2"/>
                         <outlet property="divButton" destination="K0D-rE-Jqb" id="6iG-BT-L1n"/>
                         <outlet property="mulButton" destination="5qG-PH-5j8" id="DHA-NC-LU7"/>
